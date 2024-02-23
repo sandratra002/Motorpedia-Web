@@ -1,0 +1,49 @@
+.caroussel{
+    --width : 100%;
+    --height : 100%;
+    width: var(--width);
+    height: var(--height);
+    overflow: hidden;
+    position: relative;
+
+    margin-top: -60px;
+}
+
+.caroussel .caroussel__wrapper{
+    width: var(--width);
+    height: var(--height);
+    display: flex;
+    transition: 1000ms transform;
+    transition-timing-function: ease-in-out;
+}
+
+.caroussel .caroussel__card{
+    width: var(--width);
+    height: var(--height);
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caroussel__btn{
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+
+    font-size: 2rem;
+
+    padding: 1rem;
+    border-radius: 50%;
+    background: none;
+    border: none ;
+}
+
+.caroussel__btn.next-btn{
+    right: 5%;
+    top: 40%;
+}
+.caroussel__btn.prev-btn{
+    left: 5%;
+    top: 40%;
+}

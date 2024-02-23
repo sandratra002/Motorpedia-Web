@@ -1,0 +1,59 @@
+/* body{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    overflow: hidden;
+} */
+
+.caroussel-card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.caroussel-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.caroussel-card .caroussel-card__image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.caroussel-card .caroussel-card__title{
+    inset: 45% -30%;
+    font-size: 1.75rem;
+}
+
+.caroussel-card .caroussel-card__price{
+    /* bottom: -40%;
+    right: -40%; */
+    inset: 30% 35%;
+    font-size: 1.75rem;
+    scale: .8;
+    font-weight: 600;
+}
+
+.caroussel-card .caroussel-card__link-btn{
+    padding: .5rem 7rem;
+    background: rgb(34, 34, 34);
+    font-weight: 500;
+    border-radius: 5px;
+    color: white;
+    /* inset: 35% 35%; */
+    inset: 45% 0;
+    border: none;
+    outline: none;
+}

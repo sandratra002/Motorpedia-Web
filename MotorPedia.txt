@@ -1,0 +1,27 @@
+FOnctionalite:
+	CRUD -> entite : minimum 4 (with foriegn key), 8 servlets (2 for each entity) + 1 login
+	Atao bogosy 
+	CUD -> Proteceted by login/mdp
+	Recherche multi-critere (+3 fields dont 1range)
+	6 methods per class
+
+Pseudo-code : 	
+	getAll() throws Exception
+		Connection connection = null;
+		PreparedStatement pr = null;
+		ResultSet rs = null;
+		try{
+			//Our code here...
+		}catch(Exception e ) 
+			if con != null -> con.rollback();
+			throw e;		
+		finally {
+			if con, pr, rs != null -> close();
+		}
+	
+Project : Ecommerce Website
+	Entity : Product, Category, Order, InventoryItem, User
+	
+	
+	
+	

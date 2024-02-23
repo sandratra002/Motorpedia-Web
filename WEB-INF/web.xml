@@ -1,0 +1,101 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1">
+    <servlet>
+        <servlet-name> ListCar </servlet-name>
+        <servlet-class> controller.ListCar </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ListCar </servlet-name>
+        <url-pattern> /list-car </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> EditCar </servlet-name>
+        <servlet-class> controller.EditCar </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> EditCar </servlet-name>
+        <url-pattern> /edit-car </url-pattern>
+    </servlet-mapping>
+    
+    <!--  -->
+    <servlet>
+        <servlet-name> ListBrand </servlet-name>
+        <servlet-class> controller.ListBrand </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ListBrand </servlet-name>
+        <url-pattern> /list-brand </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> EditBrand </servlet-name>
+        <servlet-class> controller.EditBrand </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> EditBrand </servlet-name>
+        <url-pattern> /edit-brand </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> ListCategory </servlet-name>
+        <servlet-class> controller.ListCategory </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ListCategory </servlet-name>
+        <url-pattern> /list-category </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> EditCategory </servlet-name>
+        <servlet-class> controller.EditCategory </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> EditCategory </servlet-name>
+        <url-pattern> /edit-category </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> ListEngineType </servlet-name>
+        <servlet-class> controller.ListEngineType </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ListEngineType </servlet-name>
+        <url-pattern> /list-engine-type </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> EditEngineType </servlet-name>
+        <servlet-class> controller.EditEngineType </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> EditEngineType </servlet-name>
+        <url-pattern> /edit-engine-type </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> ListTransmissionType </servlet-name>
+        <servlet-class> controller.ListTransmissionType </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ListTransmissionType </servlet-name>
+        <url-pattern> /list-transmission-type </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> EditTransmissionType </servlet-name>
+        <servlet-class> controller.EditTransmissionType </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> EditTransmissionType </servlet-name>
+        <url-pattern> /edit-transmission-type </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> ListUserinfo </servlet-name>
+        <servlet-class> controller.ListUserinfo </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ListUserinfo </servlet-name>
+        <url-pattern> /list-userinfo </url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name> EditUserinfo </servlet-name>
+        <servlet-class> controller.EditUserinfo </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> EditUserinfo </servlet-name>
+        <url-pattern> /edit-userinfo </url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -23,11 +23,9 @@ public class EngineType {
     public static int createEngineType(String name, String description) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
-        Class.forName("org.postgresql.Driver");
         int result = 0;
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/restaurant", "postgres",
-                    "43710");
+            connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
             statement = connection.prepareStatement("INSERT INTO engine_type(name, description) VALUES(?, ?)");
             statement.setString(1, name);
@@ -135,6 +133,11 @@ public class EngineType {
         try {
             connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
+
+            statement = connection.prepareStatement("DELETE FROM Car WHERE engine_type_id = ?");
+            statement.setString(1, id);
+            statement.executeUpdate();
+
             statement = connection.prepareStatement("DELETE FROM engine_type WHERE id=?");
             statement.setString(1, id);
             result = statement.executeUpdate();

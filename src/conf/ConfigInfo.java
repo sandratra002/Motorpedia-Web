@@ -1,6 +1,7 @@
 package conf;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -27,6 +28,26 @@ public class ConfigInfo {
             if (childs.item(i) instanceof Element) {
                 Element childElement = (Element) childs.item(i);
                 infos.put(childElement.getTagName(), childElement.getTextContent());
+            }
+        }
+
+        return infos;
+    }
+
+    public static ArrayList<String> getInfo(String path) throws Exception {
+        ArrayList<String> infos = new ArrayList<String>();
+
+        File xml = new File(path);
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        Document document = factory.newDocumentBuilder().parse(xml);
+
+        Element root = document.getDocumentElement();
+
+        NodeList childs = root.getChildNodes();
+        for (int i = 0; i < childs.getLength(); i++) {
+            if (childs.item(i) instanceof Element) {
+                Element childElement = (Element) childs.item(i);
+                infos.add(childElement.getTextContent());
             }
         }
 

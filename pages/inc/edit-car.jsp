@@ -26,11 +26,12 @@
             <input type="file" class="image-selector__input" name="image" id="image" style="display: none;">
             <div class="image-selector__preview">
                 <img src="./assets/images/cars/<%= info.get("brand") %>/<%= usedCar.getImage() %>" alt="Car Image">
-            </div>
+            </div>  
         </div>
         <% if(request.getAttribute("car") != null){ %>
             <input type="hidden" name="mode" value="u">
             <input type="hidden" name="id" value="<%= usedCar.getId() %>">
+            <input type="hidden" id="image-name"  name="image-name" value="<%= usedCar.getImage() %>">
         <% } %>
         <div class="form__section">
 

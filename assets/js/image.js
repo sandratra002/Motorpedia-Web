@@ -5,6 +5,11 @@ window.onload = () =>{
     if(fileInput != null){
         fileInput.addEventListener("change", (e) =>{
             let file = e.target.files[0];
+
+            let hidden = document.getElementById("image-name");
+            if(hidden){
+                hidden.parentNode.removeChild(hidden);
+            }
     
             if(file){
                 const reader = new FileReader();

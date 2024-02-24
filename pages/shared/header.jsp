@@ -6,23 +6,23 @@
     <div class="header__section">
         <nav class="heaver__nav nav">
             <ul class="">
-                <li class="nav__item active">
-                    <a href="#">Home</a>
+                <li class="nav__item">
+                    <a href="./list-car">Home</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">Brand</a>
+                    <a href="./list-brand">Brand</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">Category</a>
+                    <a href="./list-category">Category</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">Transmission</a>
+                    <a href="./list-transmission">Transmission</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">Engine</a>
+                    <a href="./list-engine">Engine</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">Login</a>
+                    <a href="./login">Login</a>
                 </li>
             </ul>
         </nav>
@@ -32,7 +32,7 @@
         <div class="header__profile profile">
             <div class="profile__image">
                 <img src="./assets/images/profile-image.jpg" alt="Profile Pic">
-                <div class="profile__status"></div>
+                <!-- <div class="profile__status"></div> -->
             </div>
 
             <div class="profile__details">

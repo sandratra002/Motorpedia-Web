@@ -17,8 +17,8 @@ public class ListCategory extends HttpServlet
                 String id = request.getParameter("id");
                 Category.deleteCategoryById(id);
             }
-            request.setAttribute("categorys", Category.readCategory());
-            request.getRequestDispatcher("list-category.jsp").forward(request, response);
+            request.setAttribute("categories", Category.readCategory());
+            request.getRequestDispatcher("./pages/index.jsp?page=list-category").forward(request, response);
         }
         catch(Exception err)
         {

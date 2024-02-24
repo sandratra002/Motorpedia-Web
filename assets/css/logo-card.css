@@ -1,0 +1,45 @@
+#main-content{
+    width: 100%;
+    padding: 5rem;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+
+.logo-card{
+    cursor: pointer;
+    width: 200px;
+    height: 100px;
+
+    overflow: visible;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.178);
+    position: relative;
+    padding: .5rem;
+}
+
+.logo-card img{
+    width: 100%;
+    height: 100%;
+}
+.logo-card__actions{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .825rem;
+    opacity: 0;
+    transition: 300ms;
+}
+.logo-card__actions a{
+    color: var(--txt-muted);
+}
+
+.logo-card:hover .logo-card__actions{
+    opacity: 1;
+}

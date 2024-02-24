@@ -7,6 +7,13 @@
     HashMap<String, HashMap<String, String>> infos = (HashMap<String, HashMap<String, String>>)request.getAttribute("infos");
 %>
 
+<div class="links">
+    <link rel="stylesheet" href="./assets/css/caroussel.css">
+    <link rel="stylesheet" href="./assets/css/caroussel-card.css">
+    <link rel="stylesheet" href="./assets/css/mini-card.css">
+    <link rel="stylesheet" href="./assets/css/details-card.css">
+</div>
+
 <div class="caroussel">
     <div class="caroussel__wrapper">
 <% for(int i = 0; i < 5; i++){ Car car = cars.get(i); HashMap<String, String> info = infos.get(car.getId());  %>

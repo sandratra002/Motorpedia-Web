@@ -133,6 +133,11 @@ public class Category {
         try {
             connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
+
+            statement = connection.prepareStatement("DELETE FROM Car WHERE category_id = ?");
+            statement.setString(1, id);
+            statement.executeUpdate();
+
             statement = connection.prepareStatement("DELETE FROM category WHERE id=?");
             statement.setString(1, id);
             result = statement.executeUpdate();

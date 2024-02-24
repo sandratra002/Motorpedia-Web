@@ -1,3 +1,4 @@
 <config>
     <image-path>C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\Motorpedia\assets\images\cars</image-path>
+    <logo-path>C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\Motorpedia\assets\images\logo</logo-path>
 </config>

@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.*;
+import java.util.ArrayList;
+
+import conf.ConfigInfo;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import model.Brand;
@@ -18,7 +21,7 @@ public class ListBrand extends HttpServlet
                 Brand.deleteBrandById(id);
             }
             request.setAttribute("brands", Brand.readBrand());
-            request.getRequestDispatcher("list-brand.jsp").forward(request, response);
+            request.getRequestDispatcher("./pages/index.jsp?page=list-brand").forward(request, response);
         }
         catch(Exception err)
         {

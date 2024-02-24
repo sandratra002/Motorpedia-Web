@@ -16,8 +16,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" xmlns:xsi="http://www.w3.org
         <servlet-name> EditCar </servlet-name>
         <url-pattern> /edit-car </url-pattern>
     </servlet-mapping>
-    
-    <!--  -->
+
     <servlet>
         <servlet-name> ListBrand </servlet-name>
         <servlet-class> controller.ListBrand </servlet-class>
@@ -27,13 +26,20 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" xmlns:xsi="http://www.w3.org
         <url-pattern> /list-brand </url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name> EditBrand </servlet-name>
-        <servlet-class> controller.EditBrand </servlet-class>
+        <servlet-name>EditBrand</servlet-name>
+        <servlet-class>controller.EditBrand</servlet-class>
+        <!-- <init-param>
+            <param-name>countries</param-name>
+            <param-value></param-value>
+            <description>All countries</description>
+        </init-param> -->
     </servlet>
     <servlet-mapping>
         <servlet-name> EditBrand </servlet-name>
         <url-pattern> /edit-brand </url-pattern>
     </servlet-mapping>
+    
+    <!--  -->
     <servlet>
         <servlet-name> ListCategory </servlet-name>
         <servlet-class> controller.ListCategory </servlet-class>

@@ -19,12 +19,9 @@
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/header.css">
-    <link rel="stylesheet" href="./assets/css/caroussel.css">
-    <link rel="stylesheet" href="./assets/css/caroussel-card.css">
-    <link rel="stylesheet" href="./assets/css/mini-card.css">
-    <link rel="stylesheet" href="./assets/css/details-card.css">
     <link rel="stylesheet" href="./assets/css/form.css">
     <link rel="stylesheet" href="./assets/css/image-selector.css">
+    <link rel="stylesheet" href="./assets/css/table.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
 
     <!-- Libraries -->
@@ -36,6 +33,7 @@
     <jsp:include page = "shared/header.jsp" />
     
         <jsp:include page = "<%= currentPage %>" /> 
+        
     <jsp:include page = "shared/footer.jsp" />
 </body>
 </html>

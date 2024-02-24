@@ -20,7 +20,7 @@ public class EditCategory extends HttpServlet
                 String id = request.getParameter("id");
                 request.setAttribute("category", Category.readCategoryById(id));
             }
-            request.getRequestDispatcher("edit-category.jsp").forward(request, response);
+            request.getRequestDispatcher("./pages/index.jsp?page=edit-category").forward(request, response);
         }
         catch(Exception err)
         {
@@ -32,7 +32,7 @@ public class EditCategory extends HttpServlet
     {
         try
         {
-            String url = "edit-category";
+            String url = "list-category";
             String name = request.getParameter("name");
             String description = request.getParameter("description");
             if(request.getParameter("mode") != null && request.getParameter("mode").equals("u"))

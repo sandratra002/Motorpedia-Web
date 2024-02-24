@@ -66,6 +66,9 @@ public class EditCar extends HttpServlet {
             url = url + "?mode=u";
             String id = request.getParameter("id");
             url = url + "&id=" + id;
+            if(request.getParameter("image-name") != null){
+                imageName = request.getParameter("image-name");
+            }
             int h = Car.updateCarById(name, year, price, seatingCapacity, imageName, brandId, transmissionTypeId, categoryId,
                     engineTypeId, id);
             out.println(h);

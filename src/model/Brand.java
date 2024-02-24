@@ -137,7 +137,14 @@ public class Brand {
         try {
             connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
-            statement = connection.prepareStatement("DELETE FROM brand WHERE id=?");
+
+            statement = connection.prepareStatement("DELETE FROM Car WHERE brand_id = ?");
+            statement.setString(1, id);
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("DELETE FROM brand\r\n" + //
+                                                    "USING brand CASCADE\r\n" + //
+                                                    "WHERE brand.id = ?");
             statement.setString(1, id);
             result = statement.executeUpdate();
             connection.commit();

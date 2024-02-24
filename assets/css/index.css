@@ -84,3 +84,11 @@ body::after{
 body.inactive::after{
     display: block;
 }   
+
+.disabled{
+    pointer-events: none;
+}
+
+.disabled > * {
+    color: var(--txt-muted);
+}

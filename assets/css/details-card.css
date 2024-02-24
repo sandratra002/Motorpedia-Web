@@ -56,7 +56,7 @@
 }
 
 .details-card__price{
-    color: var(--accent);
+    color: var(--clr-success-500);
 }
 
 .details-card__info{

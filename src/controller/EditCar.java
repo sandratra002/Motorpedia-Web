@@ -3,16 +3,18 @@ package controller;
 import java.io.*;
 import java.util.HashMap;
 
-import com.oreilly.servlet.MultipartRequest;
-
+import conf.ConfigInfo;
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.*;
 import model.Car;
 import model.Brand;
 import model.TransmissionType;
+import util.StringParse;
 import model.Category;
 import model.EngineType;
 
+@MultipartConfig
 public class EditCar extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,54 +23,66 @@ public class EditCar extends HttpServlet {
             request.setAttribute("transmissions", TransmissionType.readTransmissionType());
             request.setAttribute("categories", Category.readCategory());
             request.setAttribute("engines", EngineType.readEngineType());
+            HashMap<String, String> infos = new HashMap<String, String>();
+            infos.put("brand", "");
+            infos.put("transmission_type", "");
+            infos.put("category", "");
+            infos.put("engine_type", "");
             if (request.getParameter("mode") != null && request.getParameter("mode").equals("u")) {
                 String id = request.getParameter("id");
                 request.setAttribute("car", Car.readCarById(id));
+                infos = Car.getCarInfo(id);
             }
+            request.setAttribute("info", infos);
             request.getRequestDispatcher("./pages/index.jsp?page=edit-car").forward(request, response);
         } catch (Exception err) {
             err.printStackTrace(response.getWriter());
         }
     }
 
-    private static HashMap<String, String> getParemeters(HttpServletRequest request) throws Exception{
-        HashMap<String, String> parameters = new HashMap<String, String>();
+    private void handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        String url = "./list-car";PrintWriter out = response.getWriter();
+        String name = request.getParameter("name");
+        int year = Integer.parseInt(request.getParameter("year"));
+        double price = Double.parseDouble(request.getParameter("price"));
+        int seatingCapacity = Integer.parseInt(request.getParameter("seating-capacity"));
+        String brandId = request.getParameter("brand-id");
+        String transmissionTypeId = request.getParameter("transmission-type-id");
+        String categoryId = request.getParameter("category-id");
+        String engineTypeId = request.getParameter("engine-type-id");
+        Part part = request.getPart("image");
 
-        String uploadPath = "";
+        String extension = StringParse.getExtension(part.getSubmittedFileName());
+        String imageName = name.replaceAll(" ", "-").toLowerCase()  + "." + extension;
 
-        MultipartRequest mrequest = new MultipartRequest(request, uploadPath, 40960);
+        Brand brand = Brand.readBrandById(brandId);
 
-        
+        HashMap<String, String> infos = ConfigInfo.getServerInfo();
 
-        return parameters;
+        String filePath = infos.get("image-path") + "\\" + brand.getName() +"\\" + imageName;
+        part.write(filePath);
+
+        if (request.getParameter("mode") != null && request.getParameter("mode").equals("u")) {
+            url = url + "?mode=u";
+            String id = request.getParameter("id");
+            url = url + "&id=" + id;
+            int h = Car.updateCarById(name, year, price, seatingCapacity, imageName, brandId, transmissionTypeId, categoryId,
+                    engineTypeId, id);
+            out.println(h);
+            out.println(seatingCapacity);
+            out.println("Update car....");
+        } else {
+            Car.createCar(name, year, price, seatingCapacity, imageName, brandId, transmissionTypeId, categoryId,engineTypeId);
+        }
+        response.sendRedirect(url);  
     }
 
-
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // PrintWriter out = response.getWriter();
+            PrintWriter out = response.getWriter();
         try {
-            String url = "./pages/index.jsp?page=list-car&scroll=1";
-            String name = request.getParameter("name");
-            int year = Integer.parseInt(request.getParameter("year"));
-            double price = Double.parseDouble(request.getParameter("price"));
-            int seatingCapacity = Integer.parseInt(request.getParameter("seating-capacity"));
-            String image = request.getParameter("image");
-            String brandId = request.getParameter("brand-id");
-            String transmissionTypeId = request.getParameter("transmission-type-id");
-            String categoryId = request.getParameter("category-id");
-            String engineTypeId = request.getParameter("engine-type-id");
-            if (request.getParameter("mode") != null && request.getParameter("mode").equals("u")) {
-                url = url + "&mode=u";
-                String id = request.getParameter("id");
-                url = url + "&id=" + id;
-                Car.updateCarById(name, year, price, seatingCapacity, image, brandId, transmissionTypeId, categoryId,
-                        engineTypeId, id);
-            } else {
-                Car.createCar(name, year, price, seatingCapacity, image, brandId, transmissionTypeId, categoryId,
-                        engineTypeId);
-            }
-            response.sendRedirect(url);
+            handleRequest(request, response);
         } catch (Exception err) {
+            out.print(err);
             err.printStackTrace(response.getWriter());
         }
     }

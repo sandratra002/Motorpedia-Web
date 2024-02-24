@@ -78,8 +78,8 @@
                             </div>
                         </div>
                         <div class="details-card__btn">
-                            <a href="./edit-car?mode=u" class="details-card__edit"><i class="fa fa-edit"></i>Edit</a>
-                            <a href="#" class="details-card__delete"><i class="fa fa-trash"></i>Delete</a>
+                            <a href="./edit-car?mode=u&id=<%= car.getId() %>" class="details-card__edit"><i class="fa fa-edit"></i>Edit</a>
+                            <a href="./list-car?mode=d&id=<%= car.getId() %>" class="details-card__delete"><i class="fa fa-trash"></i>Delete</a>
                         </div>
                         <button class="detail-card__close"><i class="fa fa-x"></i></button>
                     </div>
@@ -90,4 +90,5 @@
     </div>
 </main>
 <script src="./assets/js/card.js"></script>
+<script src="./assets/js/caroussel.js"></script>
 

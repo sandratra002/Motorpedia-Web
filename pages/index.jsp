@@ -37,7 +37,5 @@
     
         <jsp:include page = "<%= currentPage %>" /> 
     <jsp:include page = "shared/footer.jsp" />
-    <script src="./assets/js/caroussel.js"></script>
-    <script src="./assets/js/image.js"></script>
 </body>
 </html>

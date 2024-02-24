@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        window.location.href = "./car/list";
+        window.location.href = "./list-car";
     </script>
 </body>
 </html>

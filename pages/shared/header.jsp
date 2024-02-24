@@ -10,13 +10,19 @@
                     <a href="#">Home</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">About</a>
+                    <a href="#">Brand</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">Contact</a>
+                    <a href="#">Category</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#">Logout</a>
+                    <a href="#">Transmission</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#">Engine</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#">Login</a>
                 </li>
             </ul>
         </nav>

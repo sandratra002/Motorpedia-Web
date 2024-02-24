@@ -1,0 +1,16 @@
+.footer {
+    background-color: #ddd;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__item {
+    color: #333;
+    font-size: 14px;
+}
+
+.footer__item-name {
+    font-weight: bold;
+}

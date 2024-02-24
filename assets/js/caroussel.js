@@ -25,6 +25,6 @@ const prev = () =>{
 nextBtn.addEventListener("click", () => next())
 prevBtn.addEventListener("click", () => prev())
 
-setInterval(() => {
-	next();
-}, 5000);
+// setInterval(() => {
+// 	next();
+// }, 5000);

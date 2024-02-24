@@ -23,7 +23,7 @@ public class ListCar extends HttpServlet {
             }
             request.setAttribute("infos", infos);
             request.setAttribute("cars", cars);
-            request.getRequestDispatcher("./pages/index.jsp?page=list-car").forward(request, response);
+            request.getRequestDispatcher("./pages/index.jsp?page=list-car#test").forward(request, response);
         } catch (Exception err) {
             err.printStackTrace(response.getWriter());
         }

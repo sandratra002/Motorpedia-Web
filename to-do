@@ -1,0 +1,12 @@
+Login :
+    -Form
+    -Creating login function
+    -Servlet(call login function)
+    -Error handling
+    -Js(hide and display login form)
+    -Lougout button
+
+Search : 
+    -Form
+    -List-car-Servlet(handle multi-criteria search(do-post))
+    -Creating method for handling search(Filter.search(String tableName, HashMap<String, String> fields))

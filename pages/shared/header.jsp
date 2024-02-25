@@ -36,8 +36,8 @@
             </div>
 
             <div class="profile__details">
-                <span class="profile__uid">sandratra002</span>
-                <span class="profile__type">Admin</span>
+                <span class="profile__uid">Guest</span>
+                <span class="profile__type">Guest</span>
             </div>
         </div>
     </div>

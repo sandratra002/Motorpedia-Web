@@ -15,9 +15,9 @@ public class EditEngineType extends HttpServlet
             if(request.getParameter("mode") != null && request.getParameter("mode").equals("u"))
             {
                 String id = request.getParameter("id");
-                request.setAttribute("engine-type", EngineType.readEngineTypeById(id));
+                request.setAttribute("engine", EngineType.readEngineTypeById(id));
             }
-            request.getRequestDispatcher("edit-engine-type.jsp").forward(request, response);
+            request.getRequestDispatcher("./pages/index.jsp?page=edit-engine-type").forward(request, response);
         }
         catch(Exception err)
         {
@@ -29,7 +29,7 @@ public class EditEngineType extends HttpServlet
     {
         try
         {
-            String url = "edit-engine-type";
+            String url = "list-engine-type";
             String name = request.getParameter("name");
             String description = request.getParameter("description");
             if(request.getParameter("mode") != null && request.getParameter("mode").equals("u"))

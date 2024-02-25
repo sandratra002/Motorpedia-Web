@@ -18,7 +18,7 @@ public class ListTransmissionType extends HttpServlet
                 TransmissionType.deleteTransmissionTypeById(id);
             }
             request.setAttribute("transmission-types", TransmissionType.readTransmissionType());
-            request.getRequestDispatcher("list-transmission-type.jsp").forward(request, response);
+            request.getRequestDispatcher("./pages/index.jsp?page=list-transmission-type").forward(request, response);
         }
         catch(Exception err)
         {

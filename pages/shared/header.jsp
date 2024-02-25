@@ -16,10 +16,10 @@
                     <a href="./list-category">Category</a>
                 </li>
                 <li class="nav__item">
-                    <a href="./list-transmission">Transmission</a>
+                    <a href="./list-transmission-type">Transmission</a>
                 </li>
                 <li class="nav__item">
-                    <a href="./list-engine">Engine</a>
+                    <a href="./list-engine-type">Engine</a>
                 </li>
                 <li class="nav__item">
                     <a href="./login">Login</a>

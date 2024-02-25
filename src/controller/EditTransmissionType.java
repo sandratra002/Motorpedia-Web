@@ -17,7 +17,7 @@ public class EditTransmissionType extends HttpServlet
                 String id = request.getParameter("id");
                 request.setAttribute("transmission-type", TransmissionType.readTransmissionTypeById(id));
             }
-            request.getRequestDispatcher("edit-transmission-type.jsp").forward(request, response);
+            request.getRequestDispatcher("./pages/index.jsp?page=edit-transmission-type").forward(request, response);
         }
         catch(Exception err)
         {
@@ -29,7 +29,7 @@ public class EditTransmissionType extends HttpServlet
     {
         try
         {
-            String url = "edit-transmission-type";
+            String url = "list-transmission-type";
             String name = request.getParameter("name");
             String description = request.getParameter("description");
             if(request.getParameter("mode") != null && request.getParameter("mode").equals("u"))

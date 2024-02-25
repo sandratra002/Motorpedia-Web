@@ -18,7 +18,7 @@ public class ListEngineType extends HttpServlet
                 EngineType.deleteEngineTypeById(id);
             }
             request.setAttribute("engine-types", EngineType.readEngineType());
-            request.getRequestDispatcher("list-engine-type.jsp").forward(request, response);
+            request.getRequestDispatcher("./pages/index.jsp?page=list-engine-type").forward(request, response);
         }
         catch(Exception err)
         {

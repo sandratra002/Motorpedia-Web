@@ -23,11 +23,9 @@ public class TransmissionType {
     public static int createTransmissionType(String name, String description) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
-        Class.forName("org.postgresql.Driver");
         int result = 0;
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/restaurant", "postgres",
-                    "43710");
+            connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
             statement = connection.prepareStatement("INSERT INTO transmission_type(name, description) VALUES(?, ?)");
             statement.setString(1, name);
@@ -136,6 +134,11 @@ public class TransmissionType {
         try {
             connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
+
+            statement = connection.prepareStatement("DELETE FROM Car WHERE transmission_type_id = ?");
+            statement.setString(1, id);
+            statement.executeUpdate();
+
             statement = connection.prepareStatement("DELETE FROM transmission_type WHERE id=?");
             statement.setString(1, id);
             result = statement.executeUpdate();

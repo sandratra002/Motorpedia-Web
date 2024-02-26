@@ -10,10 +10,9 @@ public class Category {
     String name;
     String description;
 
-    
     public Category() {
     }
-    
+
     public Category(String id, String name, String description) {
         setId(id);
         setName(name);
@@ -39,8 +38,10 @@ public class Category {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -66,9 +67,12 @@ public class Category {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return categorys;
     }
@@ -93,9 +97,12 @@ public class Category {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return category;
     }
@@ -120,8 +127,10 @@ public class Category {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -149,8 +158,10 @@ public class Category {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -179,4 +190,3 @@ public class Category {
         return this.description;
     }
 }
-

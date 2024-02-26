@@ -10,7 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.*;
 import model.Brand;
-import util.StringParse;
+import util.StringParser;
 
 @MultipartConfig
 public class EditBrand extends HttpServlet {
@@ -39,7 +39,7 @@ public class EditBrand extends HttpServlet {
             
             Part part = request.getPart("logo");
             HashMap<String, String> infos = ConfigInfo.getServerInfo();
-            String extension = StringParse.getExtension(part.getSubmittedFileName());
+            String extension = StringParser.getExtension(part.getSubmittedFileName());
             String imageName = name.replaceAll(" ", "-").toLowerCase()  + "." + extension;
             String filePath = infos.get("logo-path") +"\\" + imageName;
             part.write(filePath);

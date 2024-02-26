@@ -11,16 +11,6 @@ public class Brand {
     String logo;
     String originCountry;
 
-    public Brand() {
-    }
-
-    public Brand(String id, String name, String logo, String originCountry) {
-        setId(id);
-        setName(name);
-        setLogo(logo);
-        setOriginCountry(originCountry);
-    }
-
     public static int createBrand(String name, String logo, String originCountry) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -41,8 +31,10 @@ public class Brand {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -68,9 +60,12 @@ public class Brand {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return brands;
     }
@@ -96,9 +91,12 @@ public class Brand {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return brand;
     }
@@ -124,8 +122,10 @@ public class Brand {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -143,8 +143,8 @@ public class Brand {
             statement.executeUpdate();
 
             statement = connection.prepareStatement("DELETE FROM brand\r\n" + //
-                                                    "USING brand CASCADE\r\n" + //
-                                                    "WHERE brand.id = ?");
+                    "USING brand CASCADE\r\n" + //
+                    "WHERE brand.id = ?");
             statement.setString(1, id);
             result = statement.executeUpdate();
             connection.commit();
@@ -155,10 +155,23 @@ public class Brand {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
+    }
+
+    // Constructors, getters and setters
+    public Brand() {
+    }
+
+    public Brand(String id, String name, String logo, String originCountry) {
+        setId(id);
+        setName(name);
+        setLogo(logo);
+        setOriginCountry(originCountry);
     }
 
     public void setId(String id) {

@@ -10,7 +10,7 @@ import jakarta.servlet.http.*;
 import model.Car;
 import model.Brand;
 import model.TransmissionType;
-import util.StringParse;
+import util.StringParser;
 import model.Category;
 import model.EngineType;
 
@@ -52,7 +52,7 @@ public class EditCar extends HttpServlet {
         String engineTypeId = request.getParameter("engine-type-id");
         Part part = request.getPart("image");
 
-        String extension = StringParse.getExtension(part.getSubmittedFileName());
+        String extension = StringParser.getExtension(part.getSubmittedFileName());
         String imageName = name.replaceAll(" ", "-").toLowerCase()  + "." + extension;
 
         Brand brand = Brand.readBrandById(brandId);

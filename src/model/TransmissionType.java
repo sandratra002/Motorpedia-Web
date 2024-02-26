@@ -10,7 +10,6 @@ public class TransmissionType {
     String name;
     String description;
 
-    
     public TransmissionType() {
     }
 
@@ -39,8 +38,10 @@ public class TransmissionType {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -66,9 +67,12 @@ public class TransmissionType {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return transmissionTypes;
     }
@@ -94,9 +98,12 @@ public class TransmissionType {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return transmissionType;
     }
@@ -121,8 +128,10 @@ public class TransmissionType {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -150,8 +159,10 @@ public class TransmissionType {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }

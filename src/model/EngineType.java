@@ -10,10 +10,9 @@ public class EngineType {
     String name;
     String description;
 
-    
     public EngineType() {
     }
-    
+
     public EngineType(String id, String name, String description) {
         setId(id);
         setName(name);
@@ -39,8 +38,10 @@ public class EngineType {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -66,9 +67,12 @@ public class EngineType {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return engineTypes;
     }
@@ -93,9 +97,12 @@ public class EngineType {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return engineType;
     }
@@ -120,8 +127,10 @@ public class EngineType {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -149,8 +158,10 @@ public class EngineType {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -166,6 +177,7 @@ public class EngineType {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public String getId() {
         return this.id;
     }

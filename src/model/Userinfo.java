@@ -45,8 +45,10 @@ public class Userinfo {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -72,9 +74,12 @@ public class Userinfo {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return userinfos;
     }
@@ -100,9 +105,12 @@ public class Userinfo {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return userinfo;
     }
@@ -131,8 +139,10 @@ public class Userinfo {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -155,8 +165,10 @@ public class Userinfo {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -180,6 +192,7 @@ public class Userinfo {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getId() {
         return this.id;
     }

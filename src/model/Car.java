@@ -35,7 +35,7 @@ public class Car {
         setEngineTypeId(engineTypeId);
     }
 
-    public static HashMap<String, String> getCarInfo(String id) throws Exception{
+    public static HashMap<String, String> getCarInfo(String id) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet set = null;
@@ -58,9 +58,12 @@ public class Car {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return categorys;
     }
@@ -93,8 +96,10 @@ public class Car {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -122,9 +127,12 @@ public class Car {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return cars;
     }
@@ -152,9 +160,12 @@ public class Car {
             }
             throw err;
         } finally {
-            set.close();
-            statement.close();
-            connection.close();
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return car;
     }
@@ -189,8 +200,10 @@ public class Car {
             }
             throw err;
         } finally {
-            statement.close();
-            connection.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
         }
         return result;
     }
@@ -259,7 +272,6 @@ public class Car {
         this.engineTypeId = engineTypeId;
     }
 
-    
     public String getId() {
         return this.id;
     }

@@ -23,20 +23,24 @@ public class Userinfo {
         setPassword(password);
     }
 
-    public static int createUserinfo(String name, String firstName, String email, String password) throws Exception {
+    public static String createUserinfo(String name, String firstName, String email, String password) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
-        int result = 0;
+        ResultSet resultSet = null;
+        String result = null;
         try {
             connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
             statement = connection
-                    .prepareStatement("INSERT INTO userinfo(name, first_name, email, password) VALUES(?, ?, ?, encode(digest(?, 'sha256'), 'hex'))");
+                    .prepareStatement("INSERT INTO userinfo(name, first_name, email, password) VALUES(?, ?, ?, encode(digest(?, 'sha256'), 'hex')) RETURNING id");
             statement.setString(1, name);
             statement.setString(2, firstName);
             statement.setString(3, email);
             statement.setString(4, password);
-            result = statement.executeUpdate();
+            resultSet = statement.executeQuery();
+            if(resultSet.next()){   
+                result = resultSet.getString("id");
+            }
             connection.commit();
         } catch (Exception err) {
             if (connection != null) {

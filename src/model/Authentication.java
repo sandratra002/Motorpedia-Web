@@ -43,4 +43,17 @@ public class Authentication {
         }
         return userinfo;
     }
+
+    public static Userinfo signup(String name, String firstName, String email, String password, String confirmPassword) throws Exception{
+        if(!password.equals(confirmPassword)) throw new Exception("Two password must be the same");
+        if(!isValidEmail(email)) throw new Exception("Invalid email");
+        if ("".equals(name) || "".equals(firstName)) throw new Exception("Invalid name or firstName");
+        String id = Userinfo.createUserinfo(name, firstName, email, password);
+        return Userinfo.readUserinfoById(id);
+    }
+
+    public static boolean isValidEmail(String email) {
+        String regex = "^[\\w!#$%&'*+/=?^`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?$";
+        return email.matches(regex);
+    }
 }

@@ -31,7 +31,7 @@ public class Userinfo {
             connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
             statement = connection
-                    .prepareStatement("INSERT INTO userinfo(name, first_name, email, password) VALUES(?, ?, ?, ?)");
+                    .prepareStatement("INSERT INTO userinfo(name, first_name, email, password) VALUES(?, ?, ?, encode(digest(?, 'sha256'), 'hex'))");
             statement.setString(1, name);
             statement.setString(2, firstName);
             statement.setString(3, email);

@@ -46,7 +46,8 @@ CREATE TABLE UserInfo (
     name VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    UNIQUE (email)
 );
 
 CREATE OR REPLACE VIEW v_Car_Info AS (

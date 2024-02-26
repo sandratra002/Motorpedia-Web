@@ -1,14 +1,18 @@
 package testing;
 
-import model.Car;
-
-import java.util.HashMap;
+import model.Authentication;
+import model.Userinfo;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            HashMap<String, String> info = Car.getCarInfo("CAR0001");
-            System.out.println(info.get(""));
+            // Userinfo.createUserinfo("Aina", "Sandratra", "aina@gmail.com", "aina");
+            Userinfo info = Authentication.login("aina@gmail.com", "aina1");
+            if(info != null){
+                System.out.println(info.getName());
+            }else{
+                System.out.println("Login failed");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

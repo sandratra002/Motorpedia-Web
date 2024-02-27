@@ -10,6 +10,7 @@ public class TransmissionType {
     String name;
     String description;
 
+    //Constructors
     public TransmissionType() {
     }
 
@@ -19,6 +20,7 @@ public class TransmissionType {
         setDescription(description);
     }
 
+    //CRUD Methods
     public static int createTransmissionType(String name, String description) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -167,6 +169,7 @@ public class TransmissionType {
         return result;
     }
 
+    //Getters and setters
     public void setId(String id) {
         this.id = id;
     }

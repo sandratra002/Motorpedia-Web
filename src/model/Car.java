@@ -18,6 +18,7 @@ public class Car {
     String categoryId;
     String engineTypeId;
 
+    //Constructors
     public Car() {
     }
 
@@ -35,6 +36,7 @@ public class Car {
         setEngineTypeId(engineTypeId);
     }
 
+    //Class methods
     private static String toQuery(HashMap<String, Object> search) throws Exception {
         String query = "SELECT * FROM Car WHERE 1 = 1 ";
 
@@ -133,6 +135,7 @@ public class Car {
         return categorys;
     }
 
+    //CRUD methods
     public static int createCar(String name, int year, double price, int seatingCapacity, String image, String brandId,
             String transmissionTypeId, String categoryId, String engineTypeId) throws Exception {
         Connection connection = null;
@@ -297,6 +300,7 @@ public class Car {
         return result;
     }
 
+    //Getters and setters
     public void setId(String id) {
         this.id = id;
     }

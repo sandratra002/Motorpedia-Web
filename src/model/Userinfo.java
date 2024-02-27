@@ -12,6 +12,7 @@ public class Userinfo {
     String email;
     String password;
 
+    //Constructors
     public Userinfo() {
     }
 
@@ -23,6 +24,7 @@ public class Userinfo {
         setPassword(password);
     }
 
+    //CRUD Methods
     public static String createUserinfo(String name, String firstName, String email, String password) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -177,6 +179,7 @@ public class Userinfo {
         return result;
     }
 
+    //Getters and setters
     public void setId(String id) {
         this.id = id;
     }

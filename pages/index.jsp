@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="./assets/icons/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="./assets/icons/fontawesome-free-6.4.2-web/css/fontawesome.css">
 </head>
-<body>
+<body class="">
     <div class="white-bg"></div>
     <jsp:include page = "shared/header.jsp" />
     

@@ -17,7 +17,7 @@
 <form action="./edit-brand" method="post" id="login-form" class="form" enctype="multipart/form-data">
     <div class="form__layout">
         <div class="form__section image-selector">
-            <label class="image-selector__label" for="image"><i class="fa fa-pen"></i></label>
+            <label class="image-selector__label" for="image"><i class="fa fa-camera"></i></label>
             <input type="file" class="image-selector__input" name="logo" id="image" style="display: none;">
             <div class="image-selector__preview">
                 <img src="./assets/images/logo/<%= usedBrand.getLogo() %>" alt="Brand Image">

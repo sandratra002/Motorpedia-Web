@@ -1,3 +1,5 @@
+<!-- <jsp:include page = "form.jsp" /> -->
+
 <header class="header">
     <div class="header__logo">
         <h1><a href="#">MotorPedia</a></h1>
@@ -20,9 +22,6 @@
                 </li>
                 <li class="nav__item">
                     <a href="./list-engine-type">Engine</a>
-                </li>
-                <li class="nav__item">
-                    <a href="./login">Login</a>
                 </li>
             </ul>
         </nav>

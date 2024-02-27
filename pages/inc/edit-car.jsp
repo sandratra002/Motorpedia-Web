@@ -22,7 +22,7 @@
 <form action="./edit-car" method="post" id="login-form" class="form" enctype="multipart/form-data">
     <div class="form__layout">
         <div class="form__section image-selector">
-            <label class="image-selector__label" for="image"><i class="fa fa-pen"></i></label>
+            <label class="image-selector__label" for="image"><i class="fa fa-camera"></i></label>
             <input type="file" class="image-selector__input" name="image" id="image" style="display: none;">
             <div class="image-selector__preview">
                 <img src="./assets/images/cars/<%= info.get("brand") %>/<%= usedCar.getImage() %>" alt="Car Image">

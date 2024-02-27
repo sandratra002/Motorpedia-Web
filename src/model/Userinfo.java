@@ -12,7 +12,7 @@ public class Userinfo {
     String email;
     String password;
 
-    //Constructors
+    // Constructors
     public Userinfo() {
     }
 
@@ -24,7 +24,7 @@ public class Userinfo {
         setPassword(password);
     }
 
-    //CRUD Methods
+    // CRUD Methods
     public static String createUserinfo(String name, String firstName, String email, String password) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -34,13 +34,14 @@ public class Userinfo {
             connection = SQLConnection.getConnection();
             connection.setAutoCommit(false);
             statement = connection
-                    .prepareStatement("INSERT INTO userinfo(name, first_name, email, password) VALUES(?, ?, ?, encode(digest(?, 'sha256'), 'hex')) RETURNING id");
+                    .prepareStatement(
+                            "INSERT INTO userinfo(name, first_name, email, password) VALUES(?, ?, ?, encode(digest(?, 'sha256'), 'hex')) RETURNING id");
             statement.setString(1, name);
             statement.setString(2, firstName);
             statement.setString(3, email);
             statement.setString(4, password);
             resultSet = statement.executeQuery();
-            if(resultSet.next()){   
+            if (resultSet.next()) {
                 result = resultSet.getString("id");
             }
             connection.commit();
@@ -179,7 +180,7 @@ public class Userinfo {
         return result;
     }
 
-    //Getters and setters
+    // Getters and setters
     public void setId(String id) {
         this.id = id;
     }

@@ -11,7 +11,7 @@ public class Brand {
     String logo;
     String originCountry;
 
-    //CRUD Method
+    // CRUD Method
     public static int createBrand(String name, String logo, String originCountry) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;

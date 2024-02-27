@@ -25,7 +25,7 @@ public class ListCar extends HttpServlet {
             }
             ArrayList<Car> cars = Car.readCar();
             HashMap<String, HashMap<String, String>> infos = new HashMap<String, HashMap<String, String>>();
-            for(Car car : cars){
+            for (Car car : cars) {
                 infos.put(car.getId(), Car.getCarInfo(car.getId()));
             }
             request.setAttribute("infos", infos);
@@ -36,8 +36,9 @@ public class ListCar extends HttpServlet {
         }
     }
 
-    private void handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        String url = "./list-car";PrintWriter out = response.getWriter();
+    private void handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String url = "./list-car";
+        PrintWriter out = response.getWriter();
         String name = request.getParameter("name");
         int year = Integer.parseInt(request.getParameter("year"));
         double price = Double.parseDouble(request.getParameter("price"));
@@ -49,31 +50,33 @@ public class ListCar extends HttpServlet {
         Part part = request.getPart("image");
 
         String extension = StringParser.getExtension(part.getSubmittedFileName());
-        String imageName = name.replaceAll(" ", "-").toLowerCase()  + "." + extension;
+        String imageName = name.replaceAll(" ", "-").toLowerCase() + "." + extension;
 
         Brand brand = Brand.readBrandById(brandId);
 
         HashMap<String, String> infos = ConfigInfo.getServerInfo();
 
-        String filePath = infos.get("image-path") + "\\" + brand.getName() +"\\" + imageName;
+        String filePath = infos.get("image-path") + "\\" + brand.getName() + "\\" + imageName;
         part.write(filePath);
 
         if (request.getParameter("mode") != null && request.getParameter("mode").equals("u")) {
             url = url + "?mode=u";
             String id = request.getParameter("id");
             url = url + "&id=" + id;
-            if(request.getParameter("image-name") != null){
+            if (request.getParameter("image-name") != null) {
                 imageName = request.getParameter("image-name");
             }
-            int h = Car.updateCarById(name, year, price, seatingCapacity, imageName, brandId, transmissionTypeId, categoryId,
+            int h = Car.updateCarById(name, year, price, seatingCapacity, imageName, brandId, transmissionTypeId,
+                    categoryId,
                     engineTypeId, id);
             out.println(h);
             out.println(seatingCapacity);
             out.println("Update car....");
         } else {
-            Car.createCar(name, year, price, seatingCapacity, imageName, brandId, transmissionTypeId, categoryId,engineTypeId);
+            Car.createCar(name, year, price, seatingCapacity, imageName, brandId, transmissionTypeId, categoryId,
+                    engineTypeId);
         }
-        response.sendRedirect(url);  
+        response.sendRedirect(url);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -10,7 +10,7 @@ public class Category {
     String name;
     String description;
 
-    //Contructors
+    // Contructors
     public Category() {
     }
 
@@ -20,7 +20,7 @@ public class Category {
         setDescription(description);
     }
 
-    //CRUD Method
+    // CRUD Method
     public static int createCategory(String name, String description) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -168,7 +168,7 @@ public class Category {
         return result;
     }
 
-    //Getters and setters
+    // Getters and setters
     public void setId(String id) {
         this.id = id;
     }

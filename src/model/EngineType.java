@@ -10,7 +10,7 @@ public class EngineType {
     String name;
     String description;
 
-    //Constructors
+    // Constructors
     public EngineType() {
     }
 
@@ -20,7 +20,7 @@ public class EngineType {
         setDescription(description);
     }
 
-    //CRUD Methods
+    // CRUD Methods
     public static int createEngineType(String name, String description) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -168,7 +168,7 @@ public class EngineType {
         return result;
     }
 
-    //Getters and setters 
+    // Getters and setters
     public void setId(String id) {
         this.id = id;
     }

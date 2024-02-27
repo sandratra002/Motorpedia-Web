@@ -14,7 +14,7 @@ public class EditBrand extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String path = "webapps\\Motorpedia\\conf\\countries.xml";
-            ArrayList<String>  countries = ConfigInfo.getInfo(path);
+            ArrayList<String> countries = ConfigInfo.getInfo(path);
             request.setAttribute("countries", countries);
             if (request.getParameter("mode") != null && request.getParameter("mode").equals("u")) {
                 String id = request.getParameter("id");
@@ -27,7 +27,7 @@ public class EditBrand extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
     }
 
 }

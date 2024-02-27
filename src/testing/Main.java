@@ -1,18 +1,21 @@
 package testing;
 
-import model.Authentication;
-import model.Userinfo;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import model.Car;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            // Userinfo.createUserinfo("Aina", "Sandratra", "aina@gmail.com", "aina");
-            Userinfo info = Authentication.signup("Aina", "Sandratra", "aina@gmail.cmom", "aina", "aina");
-            if(info != null){
-                System.out.println(info.getName());
-            }else{
-                System.out.println("Login failed");
-            }
+            HashMap<String, Object> search = new HashMap<String, Object>();
+            search.put("name", "");
+            search.put("min-price", 40000.0);
+            search.put("max-price", 45000.0);
+            search.put("year", 2024);
+            search.put("category", "CAT0001");
+            ArrayList<Car> cars = Car.search(search);
+            System.out.println(cars.size());
         } catch (Exception e) {
             e.printStackTrace();
         }

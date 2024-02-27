@@ -35,6 +35,71 @@ public class Car {
         setEngineTypeId(engineTypeId);
     }
 
+    private static String toQuery(HashMap<String, Object> search) throws Exception {
+        String query = "SELECT * FROM Car WHERE 1 = 1 ";
+
+        query = getQuery(search, query);
+            
+        return query;
+    }
+
+    private static String getQuery(HashMap<String, Object> search, String query) {
+        if (search.get("name") != null && !"".equals(search.get("name")))
+            query += " AND name LIKE \'%" + ((String) search.get("name")) + "%\' ";
+        if (search.get("transmission-type") != null && !"".equals(search.get("transmission-type")))
+            query += " AND transmission_type_id = \'" + ((String) search.get("transmission-type")) + "\' ";
+        if (search.get("engine-type") != null && !"".equals(search.get("engine-type")))
+            query += " AND engine-type_type_id = \'" + ((String) search.get("engine-type")) + "\' ";
+        if (search.get("category") != null && !"".equals(search.get("category")))
+            query += " AND category_id = \'" + ((String) search.get("category")) + "\' ";
+        if (search.get("max-price") != null && (double) search.get("max-price") > 0)
+            query += " AND price <= " + ((double) search.get("max-price")) + " ";
+        if (search.get("min-price") != null && (double) search.get("min-price") >= 0)
+            query += " AND price >= " + ((double) search.get("min-price")) + " ";
+        if (search.get("year") != null && (int) search.get("year") > 0)
+            query += " AND year = " + ((int) search.get("year")) + " ";
+        if (search.get("brand") != null && !"".equals(search.get("brand")))
+            query += " AND brand_id = \'" + ((String) search.get("brand")) + "\' ";
+        if (search.get("seating-capacity") != null && !"".equals(search.get("seating-capacity")))
+            query += " AND seating_capacity = " + ((String) search.get("seating-capacity")) + " ";
+        return query;
+    }
+
+    public static ArrayList<Car> search(HashMap<String, Object> search) throws Exception {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        ArrayList<Car> cars = new ArrayList<>();
+        try {
+            connection = SQLConnection.getConnection();
+            connection.setAutoCommit(false);
+            String query = toQuery(search);
+            System.out.println(query);
+            statement = connection.prepareStatement(query);
+            set = statement.executeQuery();
+            while (set.next()) {
+                Car car = new Car(set.getString("id"), set.getString("name"), set.getInt("year"),
+                        set.getDouble("price"), set.getInt("seating_capacity"), set.getString("image"),
+                        set.getString("brand_id"), set.getString("transmission_type_id"), set.getString("category_id"),
+                        set.getString("engine_type_id"));
+                cars.add(car);
+            }
+        } catch (Exception err) {
+            if (connection != null) {
+                connection.close();
+            }
+            throw err;
+        } finally {
+            if (set != null)
+                set.close();
+            if (statement != null)
+                statement.close();
+            if (connection != null)
+                connection.close();
+        }
+        return cars;
+    }
+
     public static HashMap<String, String> getCarInfo(String id) throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;

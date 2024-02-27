@@ -14,7 +14,7 @@
     <% }else{ %>
         <h1 class="title">New EngineType</h1>
     <% } %>
-    <form action="./edit-engine-type" method="post" id="login-form" class="form" style="width: 40%;">
+    <form action="./list-engine-type" method="post" id="login-form" class="form" style="width: 40%;">
         <% if(request.getAttribute("brand") != null){ %>
             <input type="hidden" name="mode" value="u">
             <input type="hidden" name="id" value="<%= engine.getId() %>">

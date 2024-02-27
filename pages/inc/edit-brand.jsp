@@ -14,7 +14,7 @@
     <% }else{ %>
         <h1 class="title">New Brand</h1>
     <% } %>
-<form action="./edit-brand" method="post" id="login-form" class="form" enctype="multipart/form-data">
+<form action="./list-brand" method="post" id="login-form" class="form" enctype="multipart/form-data">
     <div class="form__layout">
         <div class="form__section image-selector">
             <label class="image-selector__label" for="image"><i class="fa fa-camera"></i></label>

@@ -50,6 +50,29 @@ CREATE TABLE UserInfo (
     UNIQUE (email)
 );
 
+INSERT INTO UserInfo (name, first_name, email, password) VALUES
+    ('admin', 'admin', 'admin@gmail.com', encode(digest('admin', 'sha256'), 'hex'));
+
+CREATE TABLE Review (
+    id VARCHAR(10) DEFAULT ('REV') || LPAD(nextval('review_sequence')::TEXT, 4, '0') PRIMARY KEY,
+    car_id VARCHAR(10),
+    user_id VARCHAR(10),
+    review TEXT,
+    rating INT,
+    FOREIGN KEY (car_id) REFERENCES Car(id),
+    FOREIGN KEY (user_id) REFERENCES UserInfo(id)
+);
+
+CREATE TABLE Event (
+    id VARCHAR(10) DEFAULT ('EVE') || LPAD(nextval('event_sequence')::TEXT, 4, '0') PRIMARY KEY,
+    brand_id VARCHAR(10),
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    hashtag VARCHAR(100) DEFAULT NULL,
+    event_date DATE NOT NULL,
+    FOREIGN KEY (brand_id) REFERENCES Brand(id)
+);
+
 CREATE OR REPLACE VIEW v_Car_Info AS (
     SELECT 
         c.id,

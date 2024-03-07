@@ -7,7 +7,9 @@
 
 <main class="main-content" id="main-content">
     <h1 class="title">EngineType</h1>
-    <a href="./edit-engine-type">New EngineType</a>
+    <% if(session.getAttribute("user") != null){ %>
+        <a href="./edit-engine-type">New EngineType</a>
+    <% } %>
     <div class="container">
         <table>
             <tr>
@@ -22,8 +24,10 @@
                     <td class="id"><%= engine.getId() %></td>
                     <td class="name"><%= engine.getName() %></td>
                     <td class="name"><%= engine.getDescription() %></td>
-                    <td class="name action"><a style="color: green;" href="./edit-engine-type?mode=u&id=<%= engine.getId() %>"><i class="fa fa-pen"></i>Edit</a></td>
-                    <td class="name action"><a style="color: red" href="./list-engine-type?mode=d&id=<%= engine.getId() %>"><i class="fa fa-trash"></i>Delete</a></td>
+                    <% if(session.getAttribute("user") != null){ %>
+                        <td class="name action"><a style="color: green;" href="./edit-engine-type?mode=u&id=<%= engine.getId() %>"><i class="fa fa-pen"></i>Edit</a></td>
+                        <td class="name action"><a style="color: red" href="./list-engine-type?mode=d&id=<%= engine.getId() %>"><i class="fa fa-trash"></i>Delete</a></td>
+                    <% } %>
                 </tr>
                 <% } %>
         </table>

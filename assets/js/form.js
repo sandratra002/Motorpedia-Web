@@ -6,7 +6,7 @@ let signupForm = document.getElementById("signup-form");
 
 console.log("Hello WOrld")
 
-loginBtn.addEventListener("click", () => {
+const login = () =>{
     loginForm.classList.remove("disabled");
     loginForm.classList.add("enabled");
 
@@ -18,9 +18,10 @@ loginBtn.addEventListener("click", () => {
 
     signupBtn.classList.remove("enabled");
     signupBtn.classList.add("disabled");
-});
+    localStorage.setItem("enabled", "login");
+}
 
-signupBtn.addEventListener("click", () => {
+const signup = () =>{
     signupForm.classList.remove("disabled");
     signupForm.classList.add("enabled");
 
@@ -32,4 +33,13 @@ signupBtn.addEventListener("click", () => {
 
     loginBtn.classList.remove("enabled");
     loginBtn.classList.add("disabled");
+    localStorage.setItem("enabled", "signup");
+}
+
+loginBtn.addEventListener("click", () => {
+    login();
+});
+
+signupBtn.addEventListener("click", () => {
+    signup();
 });

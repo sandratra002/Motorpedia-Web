@@ -1,5 +1,14 @@
 <!-- <jsp:include page = "form.jsp" /> -->
+<%@page import = "java.util.*" %>
+<%@page import = "model.*" %>
 
+<%
+    UserInfo user = new UserInfo("", "Guest", "Guest", "guest@gmail.cimom", "");
+    if(session.getAttribute("user") != null){
+        user = (UserInfo)session.getAttribute("user");
+    }    
+    String type = session.getAttribute("user") != null ? "Admin" : "Guest";
+%>
 <header class="header">
     <div class="header__logo">
         <h1><a href="#">MotorPedia</a></h1>
@@ -15,14 +24,20 @@
                     <a href="./list-brand">Brand</a>
                 </li>
                 <li class="nav__item">
-                    <a href="./list-category">Category</a>
+                    <a href="./list-review">Review</a>
                 </li>
                 <li class="nav__item">
-                    <a href="./list-transmission-type">Transmission</a>
+                    <a href="./list-event">Events</a>
                 </li>
-                <li class="nav__item">
-                    <a href="./list-engine-type">Engine</a>
-                </li>
+                <% if(session.getAttribute("user") != null){ %>
+                    <li class="nav__item">
+                        <a href="./logout">Logout</a>
+                    </li>
+                <% }else{ %>
+                    <li class="nav__item">
+                        <a href="./login">Login</a>
+                    </li>
+                <% } %>
             </ul>
         </nav>
 
@@ -35,8 +50,8 @@
             </div>
 
             <div class="profile__details">
-                <span class="profile__uid">Guest</span>
-                <span class="profile__type">Guest</span>
+                <span class="profile__uid"><%= user.getName() %></span>
+                <span class="profile__type"><%= type %></span>
             </div>
         </div>
     </div>

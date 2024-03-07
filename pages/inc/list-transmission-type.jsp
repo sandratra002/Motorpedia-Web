@@ -7,7 +7,9 @@
 
 <main class="main-content" id="main-content">
     <h1 class="title">TransmissionType</h1>
-    <a href="./edit-transmission-type">New TransmissionType</a>
+    <% if(session.getAttribute("user") != null){ %>
+        <a href="./edit-transmission-type">New TransmissionType</a>
+    <% } %>
     <div class="container">
         <table>
             <tr>
@@ -22,8 +24,10 @@
                     <td class="id"><%= transmission.getId() %></td>
                     <td class="name"><%= transmission.getName() %></td>
                     <td class="name"><%= transmission.getDescription() %></td>
-                    <td class="name action"><a style="color: green;" href="./edit-transmission-type?mode=u&id=<%= transmission.getId() %>"><i class="fa fa-pen"></i>Edit</a></td>
-                    <td class="name action"><a style="color: red" href="./list-transmission-type?mode=d&id=<%= transmission.getId() %>"><i class="fa fa-trash"></i>Delete</a></td>
+                    <% if(session.getAttribute("user") != null){ %>
+                        <td class="name action"><a style="color: green;" href="./edit-transmission-type?mode=u&id=<%= transmission.getId() %>"><i class="fa fa-pen"></i>Edit</a></td>
+                        <td class="name action"><a style="color: red" href="./list-transmission-type?mode=d&id=<%= transmission.getId() %>"><i class="fa fa-trash"></i>Delete</a></td>
+                    <% } %>
                 </tr>
                 <% } %>
         </table>

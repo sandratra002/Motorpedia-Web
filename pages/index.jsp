@@ -32,8 +32,14 @@
     <div class="white-bg"></div>
     <jsp:include page = "shared/header.jsp" />
     
-        <jsp:include page = "<%= currentPage %>" /> 
-        
-    <jsp:include page = "shared/footer.jsp" />
+    <jsp:include page = "<%= currentPage %>" />   
 </body>
+<% if(request.getParameter("mode") != null && request.getParameter("mode").equals("s")){ %>
+        
+    <script>
+            let container = document.getElementById("card-container");
+            window.scroll(0, container.offsetTop);
+    </script>
+    
+<% } %>
 </html>

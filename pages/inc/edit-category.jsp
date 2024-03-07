@@ -15,7 +15,7 @@
         <h1 class="title">New Category</h1>
     <% } %>
     <form action="./list-category" method="post" id="login-form" class="form" style="width: 40%;">
-        <% if(request.getAttribute("brand") != null){ %>
+        <% if(request.getAttribute("category") != null){ %>
             <input type="hidden" name="mode" value="u">
             <input type="hidden" name="id" value="<%= category.getId() %>">
         <% } %>

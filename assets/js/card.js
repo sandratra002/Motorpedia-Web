@@ -1,4 +1,4 @@
-window.onload = () =>{
+// window.onload = () =>{
     let detailsBtn = document.querySelectorAll(".mini-card__detail-btn");
     let closeBtn = document.querySelectorAll(".detail-card__close");
     let detailsCards = document.querySelectorAll(".details-card");
@@ -17,4 +17,4 @@ window.onload = () =>{
             body.classList.remove("inactive");
         })
     });
-};
+// };

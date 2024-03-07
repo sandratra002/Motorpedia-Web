@@ -4,7 +4,9 @@ DROP SEQUENCE IF EXISTS
     transmission_type_sequence,
     engine_type_sequence,
     car_sequence,
-    user_sequence
+    user_sequence,
+    review_sequence,
+    event_sequence
     CASCADE;
 
 DROP TABLE IF EXISTS 
@@ -13,5 +15,7 @@ DROP TABLE IF EXISTS
     Transmission_Type,
     Engine_Type,
     Car,
-    UserInfo
+    UserInfo,
+    Event,
+    Review
     CASCADE;

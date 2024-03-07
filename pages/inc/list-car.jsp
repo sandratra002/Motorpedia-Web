@@ -14,28 +14,12 @@
     <link rel="stylesheet" href="./assets/css/details-card.css">
 </div>
 
-<div class="caroussel">
-    <div class="caroussel__wrapper">
-<% for(int i = 0; i < 5; i++){ Car car = cars.get(i); HashMap<String, String> info = infos.get(car.getId());  %>
-        <div class="caroussel-card caroussel__card">
-            <!-- <div class="caroussel-card__title">
-                <h1><%= car.getName() %></h1>
-            </div> -->
-            <!-- <div class="caroussel-card__price">
-                <p>From $<%= car.getPrice() %>*</p>
-            </div> -->
-            <img src="./assets/images/cars/<%= info.get("brand") %>/<%= car.getImage() %>" alt="" class="caroussel-card__image">
-            <button href="#" class="caroussel-card__link-btn">Details</button>
-        </div>
-<%  } %>
-    </div>
-    <button class="caroussel__btn prev-btn"><i class="fa fa-angle-left"></i></button>
-    <button class="caroussel__btn next-btn"><i class="fa fa-angle-right"></i></button>
-</div>
-
 <main class="main-content" id="main-content">
     <h1 class="title">Cars</h1>
-    <a href="./edit-car">New Car</a>
+    <jsp:include page = "search-form.jsp" />
+    <% if(session.getAttribute("user") != null){ %>
+        <a href="./edit-car">New Car</a>
+    <% } %>
     <div class="container">
         <% for(Car car : cars) { %>
 
@@ -51,7 +35,7 @@
 
         <% } %>
     </div>
-    <div class="card-container">
+    <div class="card-container" id="card-container">
         <% for(Car car : cars) { HashMap<String, String> info = infos.get(car.getId());%>
 
             <div class="wrapper">
@@ -84,10 +68,12 @@
                                 <p class="group__content"><%= info.get("engine_type") %></p>
                             </div>
                         </div>
-                        <div class="details-card__btn">
-                            <a href="./edit-car?mode=u&id=<%= car.getId() %>" class="details-card__edit"><i class="fa fa-edit"></i>Edit</a>
-                            <a href="./list-car?mode=d&id=<%= car.getId() %>" class="details-card__delete"><i class="fa fa-trash"></i>Delete</a>
-                        </div>
+                        <% if(session.getAttribute("user") != null){ %>
+                            <div class="details-card__btn">
+                                <a href="./edit-car?mode=u&id=<%= car.getId() %>" class="details-card__edit"><i class="fa fa-edit"></i>Edit</a>
+                                <a href="./list-car?mode=d&id=<%= car.getId() %>" class="details-card__delete"><i class="fa fa-trash"></i>Delete</a>
+                            </div>
+                        <% } %>
                         <button class="detail-card__close"><i class="fa fa-x"></i></button>
                     </div>
                 </div>

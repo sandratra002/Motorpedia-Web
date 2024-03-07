@@ -21,7 +21,3 @@ Pseudo-code :
 	
 Project : Ecommerce Website
 	Entity : Product, Category, Order, InventoryItem, User
-	
-	
-	
-	
